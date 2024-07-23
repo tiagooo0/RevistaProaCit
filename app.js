@@ -10,6 +10,9 @@ const myRouter = require('./routes/myRouter');
 app.set('view engine', 'ejs');
 //Defino la localización de mis vistas
 app.set('views', path.join(__dirname, 'views'));
+ // Configuración para servir archivos estáticos
+ app.use(express.static(path.join(__dirname, 'public')));
+
 
 //Middlewares
 app.use(morgan('dev'));
