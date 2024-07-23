@@ -19,7 +19,7 @@ exports.createPost = async (req, res) => {
             description,
             content,
             date: moment().toDate(),
-            categories: Array.isArray(categories) ? categories : [categories], // Asegura que categories sea un array
+            categories,
             imageUrl
         });
         await post.save();
