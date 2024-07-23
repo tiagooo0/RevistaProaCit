@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Post</title>
+    <%- include('fragments/css.ejs') %>
+</head>
+<body>
+    <h1>Crear un Nuevo Post</h1>
+    <form action="/create" method="POST">
+        <label for="title">Título:</label>
+        <input type="text" id="title" name="title" required>
+        
+        <label for="description">Descripción:</label>
+        <textarea id="description" name="description" required></textarea>
+        
+        <fieldset>
+            <legend>Categorías:</legend>
+            <div>
+                <input type="checkbox" id="Inicio" name="categories" value="Inicio">
+                <label for="Inicio">Inicio</label>
+            </div>
+            <div>
+                <input type="checkbox" id="Entrevistas" name="categories" value="Entrevistas">
+                <label for="Entrevistas">Entrevistas</label>
+            </div>
+            <div>
+                <input type="checkbox" id="Biografías" name="categories" value="Biografías">
+                <label for="Biografías">Biografías</label>
+            </div>
+            <div>
+                <input type="checkbox" id="Experiencias" name="categories" value="Experiencias">
+                <label for="Experiencias">Experiencias</label>
+            </div>
+            <div>
+                <input type="checkbox" id="Proyectos CIT" name="categories" value="Proyectos CIT">
+                <label for="Proyectos CIT">Proyectos CIT</label>
+            </div>
+            <div>
+                <input type="checkbox" id="Novedades" name="categories" value="Novedades">
+                <label for="Novedades">Novedades</label>
+            </div>
+            <div>
+                <input type="checkbox" id="Interesantes" name="categories" value="Interesantes">
+                <label for="Interesantes">Interesantes</label>
+            </div>
+            <div>
+                <input type="checkbox" id="Tech Tips" name="categories" value="Tech Tips">
+                <label for="Tech Tips">Tech Tips</label>
+            </div>
+            <div>
+                <input type="checkbox" id="Arte y Cultura" name="categories" value="Arte y Cultura">
+                <label for="Arte y Cultura">Arte y Cultura</label>
+            </div>
+        </fieldset>
+        
+        <button type="submit">Crear Post</button>
+    </form>
+</body>
+</html>

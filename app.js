@@ -6,6 +6,8 @@ const morgan = require('morgan');
 const app = express();
 const myRouter = require('./routes/myRouter');
 
+app.use(express.urlencoded({ extended: true })); // Agregado para manejar datos de formularios
+
 //Defino el motor de plantillas a utilizar
 app.set('view engine', 'ejs');
 //Defino la localización de mis vistas

@@ -1,7 +1,7 @@
-//Modelo de ejemplo para alojar datos en una DB mongo
-const mongoose = require("mongoose");
+// models/myModel.js
+const mongoose = require('mongoose');
 
-//Creación del Schema Post
+// Creación del Schema Post
 const postSchema = new mongoose.Schema({
     title: {
         type: String,
@@ -15,13 +15,12 @@ const postSchema = new mongoose.Schema({
         type: Date,
         required: [true, "Un post debe tener una fecha"],
     },
-    technologies: {
-        type: [String],
-        required: [true, "Un post debe contar con tecnologías"],
+    categories: {
+        type: [String], // Cambiado a un array de strings
+        required: [true, "Un post debe tener al menos una categoría"],
     },
 });
 
-//Creación del modelo Post
-const Post = mongoose.model("Post", postSchema);
-
+// Creación del modelo Post y especificación del nombre de la colección
+const Post = mongoose.model("Post", postSchema, ); 
 module.exports = Post;
