@@ -1,4 +1,3 @@
-// models/myModel.js
 const mongoose = require('mongoose');
 
 // Creación del Schema Post
@@ -19,8 +18,12 @@ const postSchema = new mongoose.Schema({
         type: [String], // Cambiado a un array de strings
         required: [true, "Un post debe tener al menos una categoría"],
     },
+    imageUrl: {
+        type: String,
+    },
 });
 
-// Creación del modelo Post y especificación del nombre de la colección
-const Post = mongoose.model("Post", postSchema, ); 
+// Creación del modelo Post
+const Post = mongoose.model("Post", postSchema, "content.post");
+
 module.exports = Post;

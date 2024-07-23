@@ -3,24 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Posts en <%= category %></title>
+    <title>Posts por Categoría</title>
+    <!-- Agrega los estilos de Bootstrap o tus propios estilos -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <%- include('fragments/css.ejs') %>
-
+    <style>
+        .card {
+            max-width: 300px; /* Ajusta el ancho máximo de la tarjeta */
+            max-height: 500px; /* Ajusta la altura máxima de la tarjeta */
+            overflow: hidden; /* Oculta el contenido que desborda la tarjeta */
+        }
+        .card-img-top {
+            max-width: 100%;
+            max-height: 200px; /* Ajusta la altura máxima de la imagen */
+            object-fit: cover; /* Asegura que la imagen cubra el área sin deformarse */
+        }
+        .card-body {
+            height: 150px; /* Ajusta la altura del cuerpo de la tarjeta */
+            overflow: hidden; /* Oculta el texto que desborda el cuerpo de la tarjeta */
+        }
+    </style>
 </head>
 <body>
-    <h1>Posts en <%= category %></h1>
-    <% if (posts.length > 0) { %>
-        <ul>
-            <% posts.forEach(post => { %>
-                <li>
-                    <h2><%= post.title %></h2>
-                    <p><%= post.description %></p>
-                    <small><%= post.date.toDateString() %></small>
-                </li>
-            <% }) %>
-        </ul>
-    <% } else { %>
-        <p>No hay posts en esta categoría.</p>
-    <% } %>
+    <h1>Posts en la categoría: <%= category %></h1>
+    <div class="container">
+        <div class="row">
+            <% if (posts.length > 0) { %>
+                <% posts.forEach(post => { %>
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img class="card-img-top" src="<%= post.imageUrl %>" alt="Imagen del post">
+                            <div class="card-body">
+                                <h5 class="card-title"><%= post.title %></h5>
+                                <p class="card-text"><%= post.description %></p>
+                                <a href="#" class="btn btn-primary">Leer más</a>
+                            </div>
+                            <div class="card-footer text-muted">
+                                <%= new Date(post.date).toDateString() %>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <p>No hay posts en esta categoría.</p>
+            <% } %>
+        </div>
+    </div>
 </body>
 </html>

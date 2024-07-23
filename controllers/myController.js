@@ -1,4 +1,3 @@
-// controllers/postController.js
 const Post = require('../models/myModel');
 const moment = require('moment');
 
@@ -12,12 +11,13 @@ exports.inicio = (req, res) => {
 // Manejar la creación de un nuevo post
 exports.createPost = async (req, res) => {
     try {
-        const { title, description, categories } = req.body;
+        const { title, description, categories, imageUrl } = req.body;
         const post = new Post({
             title,
             description,
             date: moment().toDate(),
-            categories // Asegúrate de que esto es un array
+            categories, // Asegúrate de que esto es un array
+            imageUrl, // Nueva URL de la imagen
         });
         await post.save();
         res.redirect('/'); // Redirige a la página de inicio o a donde quieras
@@ -30,8 +30,8 @@ exports.createPost = async (req, res) => {
 exports.postsByCategory = async (req, res) => {
     try {
         const category = req.params.category;
-        // Usamos una expresión regular para hacer una búsqueda parcial en el array de categorías
         const posts = await Post.find({ categories: category });
+        console.log(posts); // Verifica los datos aquí
         res.render('postsByCategory', { posts, category });
     } catch (err) {
         res.status(400).send("Error al obtener los posts");
