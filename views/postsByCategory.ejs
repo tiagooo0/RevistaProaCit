@@ -8,10 +8,19 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <%- include('fragments/css.ejs') %>
     <style>
+        body {
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+        }
         .card {
             max-width: 300px; /* Ajusta el ancho máximo de la tarjeta */
             max-height: 500px; /* Ajusta la altura máxima de la tarjeta */
             overflow: hidden; /* Oculta el contenido que desborda la tarjeta */
+            margin: auto;
         }
         .card-img-top {
             max-width: 100%;
@@ -22,15 +31,22 @@
             height: 150px; /* Ajusta la altura del cuerpo de la tarjeta */
             overflow: hidden; /* Oculta el texto que desborda el cuerpo de la tarjeta */
         }
+        .card-footer {
+            text-align: center;
+        }
+      
     </style>
 </head>
 <body>
+    <!-- Navbar del sitio -->
+    <%- include('fragments/navbar') %>
+    <!-- Fin del navbar del sitio -->
     <h1>Posts en la categoría: <%= category %></h1>
     <div class="container">
-        <div class="row">
+        <div class="row justify-content-center">
             <% if (posts.length > 0) { %>
                 <% posts.forEach(post => { %>
-                    <div class="col-md-4 mb-4">
+                    <div class="col-md-4 mb-4 d-flex align-items-stretch">
                         <div class="card">
                             <img class="card-img-top" src="<%= post.imageUrl %>" alt="Imagen del post">
                             <div class="card-body">
@@ -49,5 +65,6 @@
             <% } %>
         </div>
     </div>
+    <%- include('fragments/footer') %>
 </body>
 </html>
