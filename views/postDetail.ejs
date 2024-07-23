@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= post.title %></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <%- include('fragments/css.ejs') %>
+</head>
+<body>
+    <%- include('fragments/navbar') %>
+    <div class="container mt-5">
+        <h1 class="text-center"><%= post.title %></h1>
+        <img src="<%= post.imageUrl %>" class="img-fluid mx-auto d-block" alt="Imagen del post">
+        <p class="mt-4"><%= post.content %></p>
+        <p class="text-muted text-center">Publicado el <%= new Date(post.date).toDateString() %></p>
+    </div>
+    <%- include('fragments/footer') %>
+</body>
+</html>

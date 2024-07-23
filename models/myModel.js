@@ -10,20 +10,24 @@ const postSchema = new mongoose.Schema({
         type: String,
         required: [true, "Un post debe tener una descripción"],
     },
+    content: {
+        type: String,
+        required: [true, "Un post debe tener un contenido"],
+    },
     date: {
         type: Date,
-        required: [true, "Un post debe tener una fecha"],
+        default: Date.now,
     },
     categories: {
-        type: [String], // Cambiado a un array de strings
+        type: [String],
         required: [true, "Un post debe tener al menos una categoría"],
     },
     imageUrl: {
         type: String,
+        required: [true, "Un post debe tener una imagen"],
     },
 });
 
-// Creación del modelo Post
-const Post = mongoose.model("Post", postSchema, "content.post");
+const Post = mongoose.model("Post", postSchema);
 
 module.exports = Post;

@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Posts por Categoría</title>
-    <!-- Agrega los estilos de Bootstrap o tus propios estilos -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <%- include('fragments/css.ejs') %>
     <style>
@@ -17,30 +16,27 @@
             margin: 20px 0;
         }
         .card {
-            max-width: 300px; /* Ajusta el ancho máximo de la tarjeta */
-            max-height: 500px; /* Ajusta la altura máxima de la tarjeta */
-            overflow: hidden; /* Oculta el contenido que desborda la tarjeta */
+            max-width: 300px;
+            max-height: 500px;
+            overflow: hidden;
             margin: auto;
         }
         .card-img-top {
             max-width: 100%;
-            max-height: 200px; /* Ajusta la altura máxima de la imagen */
-            object-fit: cover; /* Asegura que la imagen cubra el área sin deformarse */
+            max-height: 200px;
+            object-fit: cover;
         }
         .card-body {
-            height: 150px; /* Ajusta la altura del cuerpo de la tarjeta */
-            overflow: hidden; /* Oculta el texto que desborda el cuerpo de la tarjeta */
+            height: 150px;
+            overflow: hidden;
         }
         .card-footer {
             text-align: center;
         }
-      
     </style>
 </head>
 <body>
-    <!-- Navbar del sitio -->
     <%- include('fragments/navbar') %>
-    <!-- Fin del navbar del sitio -->
     <h1>Posts en la categoría: <%= category %></h1>
     <div class="container">
         <div class="row justify-content-center">
@@ -52,7 +48,7 @@
                             <div class="card-body">
                                 <h5 class="card-title"><%= post.title %></h5>
                                 <p class="card-text"><%= post.description %></p>
-                                <a href="#" class="btn btn-primary">Leer más</a>
+                                <a href="/post/<%= post._id %>" class="btn btn-primary">Leer más</a>
                             </div>
                             <div class="card-footer text-muted">
                                 <%= new Date(post.date).toDateString() %>

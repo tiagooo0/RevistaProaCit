@@ -1,7 +1,6 @@
-// routes/postRouter.js
 const express = require('express');
 const router = express.Router();
-const postController = require('../controllers/mycontroller.js');
+const postController = require('../controllers/myController.js');
 
 router.route('/').get(postController.inicio);
 
@@ -13,5 +12,8 @@ router.post('/create', postController.createPost);
 
 // Mostrar posts por categoría
 router.get('/category/:category', postController.postsByCategory);
+
+// Mostrar un post individual
+router.get('/post/:id', postController.getPost);
 
 module.exports = router;
