@@ -31,9 +31,9 @@ router.post('/login', passport.authenticate('local', {
     failureFlash: true
 }));
 // Mostrar el formulario de registro
-router.get('/register', (req, res) => {
-    res.render('register');
- });
+//router.get('/register', (req, res) => {
+  //  res.render('register');
+ //});
 
 // Manejar el registro
 router.post('/register', async (req, res) => {
