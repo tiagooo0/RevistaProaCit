@@ -5,6 +5,7 @@
             border-radius: 10px; /* Bordes redondeados */
             margin: 0 5px; /* Espaciado entre los elementos */
             transition: background-color 0.3s ease; /* Transición suave en hover */
+            text-align: center; /* Centrar el texto */
         }
         .navbar-nav .nav-item:nth-child(1) .nav-link { background-color: #F7D54F; }
         .navbar-nav .nav-item:nth-child(2) .nav-link { background-color: #F9A825; }
@@ -19,6 +20,20 @@
         .navbar-nav .nav-item:nth-child(11) .nav-link { background-color: #388E3C; }
         .navbar-nav .nav-item .nav-link:hover {
             filter: brightness(85%); /* Oscurece el color al pasar el ratón */
+        }
+
+        /* Estilos específicos para dispositivos móviles */
+        @media (max-width: 768px) {
+            .navbar-nav .nav-item {
+                margin-bottom: 10px; /* Espacio adicional entre los elementos */
+            }
+            .navbar-nav .nav-item .nav-link {
+                padding: 10px 15px; /* Aumentar el padding para más espacio */
+                width: 100%; /* Asegurar que el enlace ocupe todo el ancho del contenedor */
+            }
+            .navbar-nav .nav-item:nth-child(1) {
+                margin-top: 20px; /* Espaciado adicional para el primer elemento en dispositivos móviles */
+            }
         }
     </style>
     <div class="container">
