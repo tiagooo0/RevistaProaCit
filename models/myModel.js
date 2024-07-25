@@ -24,7 +24,11 @@ const postSchema = new mongoose.Schema({
     },
     imageUrl: {
         type: String,
-        required: [true, "Un post debe tener una imagen"],
+        required: [false, "Un post puede tener una imagen"],
+    },
+    videoUrl: {
+        type: String,
+        required: [false, "Un post puede tener un video"],
     },
 });
 

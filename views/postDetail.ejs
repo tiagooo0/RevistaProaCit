@@ -5,47 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= post.title %></title>
     <link rel="icon" href="/images/logoCIT.png" type="image/png">
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <%- include('fragments/css.ejs') %>
     <style>
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
         h1 {
-            text-align: center;
-            margin: 20px 0;
             font-family: 'Georgia', serif;
             font-size: 2.5rem;
             color: #333;
         }
-        .container {
-        background-color: #fff;
-        border-radius: 15px;
-    }
-    .img-fluid {
-        max-width: 100%;
-        max-height: 500px;
-        object-fit: cover;
-        border-radius: 15px;
-        margin-top: 20px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    p {
-        font-size: 1.2rem;
-        line-height: 1.6;
-        margin-top: 20px;
-    }
-    .text-muted {
-        font-size: 0.875rem;
-        margin-top: 30px;
-    }
-    .text-center {
-        text-align: center;
-    }</style>
+        .img-fluid, .video-fluid {
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+        .text-muted {
+            font-size: 0.875rem;
+            margin-top: 30px;
+        }
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <%- include('fragments/navbar') %>
     <div class="container mt-5">
         <h1 class="text-center"><%= post.title %></h1>
-        <img src="<%= post.imageUrl %>" class="img-fluid mx-auto d-block" alt="Imagen del post">
+        <% if (post.videoUrl) { %>
+            <div class="text-center">
+                <iframe class="video-fluid" src="<%= post.videoUrl %>" frameborder="0" allowfullscreen></iframe>
+            </div>
+        <% } %>
+        <% if (post.imageUrl) { %>
+            <img src="<%= post.imageUrl %>" class="img-fluid mx-auto d-block" alt="Imagen del post">
+        <% } %>
         <p class="mt-4"><%= post.content %></p>
         <p class="text-muted text-center">Publicado el <%= new Date(post.date).toDateString() %></p>
     </div>

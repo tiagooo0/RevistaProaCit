@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear Nuevo Post</title>
     <link rel="icon" href="/images/logoCIT.png" type="image/png">
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <%- include('fragments/css.ejs') %>
 </head>
@@ -27,47 +26,22 @@
                 <textarea class="form-control" id="content" name="content" rows="5" required></textarea>
             </div>
             <div class="form-group">
-                <label>Categorías</label>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="categories" value="Inicio" id="inicio">
-                    <label class="form-check-label" for="inicio">Inicio</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="categories" value="Entrevistas" id="entrevistas">
-                    <label class="form-check-label" for="entrevistas">Entrevistas</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="categories" value="Biografías" id="biografias">
-                    <label class="form-check-label" for="biografias">Biografías</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="categories" value="Experiencias" id="experiencias">
-                    <label class="form-check-label" for="experiencias">Experiencias</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="categories" value="Proyectos CIT" id="proyectosCIT">
-                    <label class="form-check-label" for="proyectosCIT">Proyectos CIT</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="categories" value="Novedades" id="novedades">
-                    <label class="form-check-label" for="novedades">Novedades</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="categories" value="Interesantes" id="interesantes">
-                    <label class="form-check-label" for="interesantes">Interesantes</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="categories" value="Tech Tips" id="techTips">
-                    <label class="form-check-label" for="techTips">Tech Tips</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="categories" value="Arte y Cultura" id="arteCultura">
-                    <label class="form-check-label" for="arteCultura">Arte y Cultura</label>
-                </div>
+                <label for="videoUrl">URL del Video (opcional)</label>
+                <input type="text" class="form-control" id="videoUrl" name="videoUrl">
             </div>
             <div class="form-group">
-                <label for="imageUrl">URL de la Imagen</label>
-                <input type="text" class="form-control" id="imageUrl" name="imageUrl" required>
+                <label for="imageUrl">URL de la Imagen (opcional)</label>
+                <input type="text" class="form-control" id="imageUrl" name="imageUrl">
+            </div>
+            <div class="form-group">
+                <label>Categorías</label>
+                <% const categories = ['Inicio', 'Entrevistas', 'Biografías', 'Experiencias', 'Proyectos CIT', 'Novedades', 'Interesantes', 'Tech Tips', 'Arte y Cultura']; %>
+                <% categories.forEach(category => { %>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="categories" value="<%= category %>" id="<%= category %>">
+                        <label class="form-check-label" for="<%= category %>"><%= category %></label>
+                    </div>
+                <% }); %>
             </div>
             <button type="submit" class="btn btn-primary">Crear Post</button>
         </form>

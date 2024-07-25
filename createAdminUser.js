@@ -6,7 +6,7 @@ mongoose.connect('mongodb://localhost/tuBaseDeDatos', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
-
+/*
 const createAdmin = async () => {
     try {
         const username = 'admin';
@@ -19,6 +19,7 @@ const createAdmin = async () => {
             mongoose.connection.close();
             return;
         }
+*/
 
         // Crea el nuevo usuario
         const hashedPassword = await bcrypt.hash(password, 10);

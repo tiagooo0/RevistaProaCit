@@ -13,14 +13,15 @@ exports.inicio = (req, res) => {
 // Manejar la creación de un nuevo post
 exports.createPost = async (req, res) => {
     try {
-        const { title, description, content, categories, imageUrl } = req.body;
+        const { title, description, content, categories, imageUrl, videoUrl } = req.body;
         const post = new Post({
             title,
             description,
             content,
             date: moment().toDate(),
             categories,
-            imageUrl
+            imageUrl,
+            videoUrl // Nuevo campo añadido
         });
         await post.save();
         res.redirect('/'); // Redirige a la página de inicio o a donde quieras
@@ -29,6 +30,7 @@ exports.createPost = async (req, res) => {
         res.status(400).send("Error creando el post");
     }
 };
+
 
 // Mostrar posts por categoría
 exports.postsByCategory = async (req, res) => {
