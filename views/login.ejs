@@ -6,11 +6,18 @@
     <title>Login</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <%- include('fragments/css.ejs') %>
-
 </head>
 <body>
     <div class="container mt-5">
         <h1 class="text-center">Login</h1>
+        
+        <!-- Mensaje de error -->
+        <% if (error) { %>
+            <div class="alert alert-danger">
+                <%= error %>
+            </div>
+        <% } %>
+        
         <form action="/login" method="POST">
             <div class="form-group">
                 <label for="username">Nombre de usuario</label>
