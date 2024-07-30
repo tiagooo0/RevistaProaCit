@@ -1,34 +1,95 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <!-- Incluímos los estilos css necesarios -->
-        <%- include('fragments/css.ejs') %>
-        <title>Revista ProA C⁸ I⁷ T⁶</title>
-        <link rel="icon" href="/images/logoCIT.png" type="image/png">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Incluímos los estilos css necesarios -->
+    <%- include('fragments/css.ejs') %>
+    <title>Revista ProA C⁸ I⁷ T⁶</title>
+    <link rel="icon" href="/images/logoCIT.png" type="image/png">
+    <style>
+        .btn-jugar {
+            background-color: #28a745; /* Verde atractivo */
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            margin: 10px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
 
-    </head>
-    <body>
-        <!-- Navbar del sitio -->
-        <%- include('fragments/navbar') %>
-        <!-- Fin del navbar del sitio -->
+        .btn-jugar:hover {
+            background-color: #218838; /* Verde más oscuro */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar del sitio -->
+    <%- include('fragments/navbar') %>
+    <!-- Fin del navbar del sitio -->
 
-        <!-- Contenido principal -->
-        <div class="container">
-            <div class="card border-0 shadow my-5">
-                <div class="card-body p-5">
-                    <h1 class="fw-light">Página principal</h1>
-                    <p class="lead">Hola soy un parte de una estructura para trabajar con expressJs</p>
-                    <!-- Contenido de las cards de la página principal -->
-                    <%- include('fragments/footer') %>
-                    <!-- Fin del contenido de las cards de la página principal -->
-                </div>
+    <!-- Contenido principal -->
+    <div class="container mt-5">
+        <div class="text-center">
+            <img src="/images/logoCIT.png" alt="Logo CIT" class="img-fluid" />
+        </div>
+        <h1 class="text-center text-danger mt-3">Revista ProA C⁸ I⁷ T⁶</h1>
+        <h2 class="text-center text-danger">Revista Multimedial Escolar de Ciencia, Innovación y Tecnología</h2>
+
+        <div class="row mt-5">
+            <div class="col-md-6">
+                <h3 class="text-primary">Revista ProA C⁸ I⁷ T⁶</h3>
+                <p><strong>La Revista ProA C⁸ I⁷ T⁶ Multimedial Escolar de Ciencia Innovación y Tecnología es Educativa</strong>, una publicación que fusiona texto, imágenes, videos y recursos interactivos para adentrarse en el fascinante mundo de la Ciencia, la Innovación y la Tecnología. Incluye experiencias que realizamos en nuestro colegio ProA y en otros ámbitos formativos relacionados a estos.</p>
+                <p><strong>La Revista ProA C⁸ I⁷ T⁶ es Creativa</strong> brinda una plataforma creativa para que los jóvenes compartan descubrimientos y pasiones, fomentando el interés por la ciencia y la tecnología en la comunidad escolar.</p>
+                <p><strong>La Revista ProA C⁸ I⁷ T⁶ es Original</strong> por ser una revista escolar, multimedial digital, y no utilizar papel, la convierte también en sostenible por su bajo impacto ambiental.</p>
+                <p><strong>La Revista ProA C⁸ I⁷ T⁶ es Interactiva</strong> porque invita, a los lectores a convertirse en escritores, convocando a que se expresen, y a que sus ideas puedan ponerse en movimiento.</p>
+                <p><strong>La Revista ProA C⁸ I⁷ T⁶ es Lúdica</strong>, invita a cada lector jugando, a adivinar el significado del nombre de nuestra revista.</p>
+                <p><strong>La Revista ProA C⁸ I⁷ T⁶</strong> como un barco a vela, navega para llegar juntos a muchos puertos, a veces con viento a favor y otras no, sumando viajeros, saberes, experiencias, destinos. Avanzando con rumbos claros, sin miedo a naufragar, entre las olas desafiantes de la Ciencia, la Innovación y la Tecnología.</p>
+                <p>Disfruten de nuestra <strong>Revista ProA C⁸ I⁷ T⁶</strong></p>
+                <p>CONTÁCTANOS</p>
+                <p>revistaproacitcapitalcentro@gmail.com</p>
+                <p><a href="https://www.cba.gov.ar/escuelas-proa/" class="text-decoration-none">Página de Escuelas ProA</a></p>
+            </div>
+            <div class="col-md-6">
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
-        <!-- Fin del contenido principal -->
-        <!-- Incluímos los scripts de javascript necesarios -->
-        <%- include('fragments/js.ejs') %>
-    </body>
+
+        <div class="mt-5">
+            <h3 class="text-danger">ADIVINA ADIVINADOR</h3>
+            <p><strong>¿Sabés qué significa C⁸ I⁷ T⁶?</strong></p>
+            <p><strong>¿Querés adivinarlo?</strong></p>
+            <p>Para ello... tendrás que Jugar al Juego del Ahorcado.</p>
+            <p><strong>Seguí nuestras instrucciones</strong></p>
+            <p> <strong>1° Deberás adivinar qué significa C⁸</strong></p>
+            <p>Jugá a cada uno de los 8 niveles de la Sección C</p>
+            <p>Consultá las pistas</p>
+            <p>¡¡ A GANAR !!</p>
+            <p><strong>2° Deberás adivinar qué significa I⁷</strong></p>
+            <p>Jugá a cada uno de los 7 niveles de la Sección I</p>
+            <p>Consultá las pistas</p>
+            <p>¡¡ A GANAR !!</p>
+            <p> <strong>3° Deberás adivinar qué significa T⁶</strong></p>
+            <p>Jugá a cada uno de los 6 niveles de la Sección T</p>
+            <p>Consultá las pistas</p>
+            <p>¡¡ A GANAR !!</p>
+            <p><strong>¡¡ D I V E R T I T E !!</strong></p>
+            <div class="text-center mt-4">
+                <a href="https://lautihumilde.github.io/JuegoAhorcados.github.io/bienvenidos.html" class="btn-jugar">Jugar</a>
+            </div>
+        </div>
+    </div>
+    <!-- Fin del contenido principal -->
+
+    <!-- Incluímos los scripts de javascript necesarios -->
+    <%- include('fragments/js.ejs') %>
+</body>
 </html>
