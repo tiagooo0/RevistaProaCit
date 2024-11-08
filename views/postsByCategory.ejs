@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts por Categoría</title>
+    <link rel="icon" href="/images/logoCIT.png" type="image/png">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <%- include('fragments/css.ejs') %>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+            font-family: 'Georgia', serif;
+            font-size: 2.5rem;
+            color: #333;
+        }
+        .card {
+            max-width: 300px;
+            margin: 20px;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+            overflow: hidden;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card-img-top {
+            max-width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+        .card-body {
+            padding: 15px;
+            background-color: #fff;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            color: #007bff;
+        }
+        .card-text {
+            font-size: 1rem;
+            color: #666;
+        }
+        .card-footer {
+            background-color: #fff;
+            border-top: 1px solid #e9ecef;
+            text-align: center;
+            font-size: 0.875rem;
+            color: #999;
+            padding: 10px 15px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+      
+    </style>
+</head>
+<body>
+    <%- include('fragments/navbar') %>
+    <h1><%= category %> De la Revista ProACIT  </h1>
+    <div class="container">
+        <div class="row justify-content-center">
+            <% if (posts.length > 0) { %>
+                <% posts.forEach(post => { %>
+                    <div class="col-md-4 mb-4 d-flex align-items-stretch">
+                        <div class="card">
+                            <img class="card-img-top" src="<%= post.imageUrl %>" alt="Imagen del post">
+                            <div class="card-body">
+                                <h5 class="card-title"><%= post.title %></h5>
+                                <p class="card-text"><%= post.description %></p>
+                                <a href="/post/<%= post._id %>" class="btn btn-primary">Leer más</a>
+                            </div>
+                            <div class="card-footer text-muted">
+                                <%= new Date(post.date).toDateString() %>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <p>No hay posts en esta categoría.</p>
+            <% } %>
+        </div>
+    </div>
+    <%- include('fragments/footer') %>
+</body>
+</html>
+

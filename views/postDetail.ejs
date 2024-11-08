@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= post.title %></title>
+    <link rel="icon" href="/images/logoCIT.png" type="image/png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <%- include('fragments/css.ejs') %>
+    <style>
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+    
+        h1 {
+            font-family: 'Georgia', serif;
+            font-size: 2.5rem;
+            color: #333;
+        }
+    
+        .img-fluid, .video-fluid {
+            max-width: 100%;
+            width: 80%; /* Ajusta este valor al tamaño deseado */
+            height: 450px; /* Ajusta este valor para cambiar la altura */
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+    
+        .text-muted {
+            font-size: 0.875rem;
+            margin-top: 30px;
+        }
+    
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <%- include('fragments/navbar') %>
+    <div class="container mt-5">
+        <h1 class="text-center"><%= post.title %></h1>
+        
+        <% if (post.videoUrl) { %>
+            <div class="text-center">
+                <iframe class="video-fluid" src="<%= post.videoUrl %>" frameborder="0" allowfullscreen></iframe>
+            </div>
+        <% } %>
+        
+        <% if (post.imageUrl) { %>
+            <img src="<%= post.imageUrl %>" class="img-fluid mx-auto d-block" alt="Imagen del post">
+        <% } %>
+
+        <!-- Aquí dividimos el contenido y procesamos cada párrafo -->
+        <% let paragraphs = post.content.split('\n'); %>
+        <% paragraphs.forEach(function(paragraph) { %>
+            <% if (paragraph.trim() !== "") { %>
+                <!-- Usamos <%- %> para renderizar HTML, permitiendo que los enlaces se muestren correctamente -->
+                <p><%- paragraph %></p>
+            <% } %>
+        <% }); %>
+
+        <p class="text-muted text-center">Publicado el <%= new Date(post.date).toDateString() %></p>
+    </div>
+    <%- include('fragments/footer') %>
+</body>
+</html>
