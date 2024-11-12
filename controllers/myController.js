@@ -1,43 +1,95 @@
 const Post = require('../models/myModel');
 const moment = require('moment');
 
+// Arreglo de imágenes para mostrar en index.ejs
+const images = [
+    { filename: 'imagen1.jpeg', name: 'Luciana Silber', text: ' Profesora, Liderazgo, Energia' },
+    { filename: 'imagen2.jpeg', name: 'Tiago Hurst', text: 'Empatico, Trabajador, Inteligente' },
+    { filename: 'imagen3.jpeg', name: 'Mayra Rodrigez', text: 'Creativa, Responsable, Positiva' },
+    { filename: 'imagen4.jpeg', name: 'Santino Giambartolomei', text: 'Empatico, Trabajador, Disiplinado' },
+    { filename: 'imagen5.jpeg', name: 'Thiago Caballerro', text: 'Valiente, Enfocado, Soñador' },
+    { filename: 'imagen6.jpeg', name: 'Santiago Avalo', text: 'Comico, Feliz, Humilde' },
+    { filename: 'imagen7.jpeg', name: 'Cristian Tello', text: 'Gracioso, Hablador, Valiente' },
+    { filename: 'imagen8.jpeg', name: 'Thiago Sartore', text: 'Timido, Humilde, Tranquilo' },
+    { filename: 'imagen9.jpeg', name: 'Lucas Tuninetti', text: 'Honesto, Inspirador, Analitico' },
+    { filename: 'imagen10.jpeg', name: 'Lorenzo Gallardo', text: 'Sociable, Responsable, Colaborativo' },
+    { filename: 'imagen11.jpeg', name: 'Hernan Torres', text: 'Distrido, Gracioso, Sinverguenza' },
+    { filename: 'imagen12.jpeg', name: 'Franco Racca', text: 'Bizarro, Feliz, Gracioso' },
+    { filename: 'imagen13.jpeg', name: 'Leandro Rios', text: 'Amigable, Timido, Gran Programador' },
+    { filename: 'imagen14.jpeg', name: 'Santino Heredia', text: 'Solidario, Audaz, Tenaz' },
+    { filename: 'imagen15.jpeg', name: 'Dante Espinoza', text: 'Feliz, Divertido, Gracioso' },
+    { filename: 'imagen16.jpeg', name: 'Tomas Williams', text: 'Sincero, Resiliente, Capaz' },
+    { filename: 'imagen17.jpeg', name: 'Camila Gonzales', text: 'Sincera, Amigable, Simpatica' },
+    { filename: 'imagen18.jpeg', name: 'Martina Nievas', text: 'Creativa, Sociable, Determinada' },
+    { filename: 'imagen19.jpeg', name: 'Bianca Diaz', text: 'Interesante, Divertida, Alegre' },
+    { filename: 'imagen20.jpeg', name: 'Milagros Colman', text: 'Compañera, Graciosa, Mandona' },
+    { filename: 'imagen21.jpeg', name: 'Julian Cabrera', text: 'Carismatico, Responsable, Compañero' },
+    { filename: 'imagen22.jpeg', name: 'Ingrid Sension', text: 'Alegre, Proactiva, Graciosa' },
+];
+
+// Función para formatear texto con URLs
+function formatUrls(text) {
+    const urlRegex = /(https?:\/\/[^\s]+)/g;
+    return text.replace(urlRegex, (url) => {
+        return <a href="${url}" target="_blank">${url}</a>;
+    });
+}
+
+// Controlador para la página de inicio
+exports.inicio = (req, res) => {
+    // Formatear las URLs en el texto de las imágenes
+    const formattedImages = images.map(image => {
+        image.text = formatUrls(image.text);
+        return image;
+    });
+
+    res.status(200).render('index', { images: formattedImages });
+};
+
 // Mostrar el formulario para crear un nuevo post
 exports.createPostForm = (req, res) => {
     res.render('createPost');
-};
-
-exports.inicio = (req, res) => {
-    res.status(200).render('index');
 };
 
 // Manejar la creación de un nuevo post
 exports.createPost = async (req, res) => {
     try {
         const { title, description, content, categories, imageUrl, videoUrl } = req.body;
+
+        // Formatear las URLs en el contenido del post
+        const formattedContent = formatUrls(content);
+
         const post = new Post({
             title,
             description,
-            content,
+            content: formattedContent, // Usamos el contenido formateado
             date: moment().toDate(),
             categories,
             imageUrl,
-            videoUrl // Nuevo campo añadido
+            videoUrl
         });
+
         await post.save();
-        res.redirect('/'); // Redirige a la página de inicio o a donde quieras
+        res.redirect('/');
     } catch (err) {
         console.error(err);
         res.status(400).send("Error creando el post");
     }
 };
 
-
 // Mostrar posts por categoría
 exports.postsByCategory = async (req, res) => {
     try {
         const category = req.params.category;
         const posts = await Post.find({ categories: category });
-        res.render('postsByCategory', { posts, category });
+
+        // Formatear el contenido de cada post
+        const formattedPosts = posts.map(post => {
+            post.content = formatUrls(post.content);
+            return post;
+        });
+
+        res.render('postsByCategory', { posts: formattedPosts, category });
     } catch (err) {
         res.status(400).send("Error al obtener los posts");
     }
@@ -47,6 +99,10 @@ exports.postsByCategory = async (req, res) => {
 exports.getPost = async (req, res) => {
     try {
         const post = await Post.findById(req.params.id);
+
+        // Formatear el contenido del post individual
+        post.content = formatUrls(post.content);
+
         res.render('postDetail', { post });
     } catch (err) {
         res.status(400).send("Error al obtener el post");

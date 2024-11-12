@@ -10,7 +10,7 @@
     <link rel="icon" href="/images/logoCIT.png" type="image/png">
     <style>
         .btn-jugar {
-            background-color: #28a745; /* Verde atractivo */
+            background-color: #28a745;
             border: none;
             color: white;
             padding: 15px 30px;
@@ -26,8 +26,48 @@
         }
 
         .btn-jugar:hover {
-            background-color: #218838; /* Verde más oscuro */
+            background-color: #218838;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .staff-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+            margin-bottom: 0; /* Elimina el margen inferior */
+            padding-bottom: 0; /* Elimina el relleno inferior */
+        }
+
+        .staff-member {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px;
+        }
+
+        .staff-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .staff-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .staff-name, .staff-text {
+            text-align: center;
+            margin-top: 5px;
+        }
+
+        footer {
+            margin-top: 0; /* Elimina el margen superior */
+            padding-top: 0; /* Elimina el relleno superior */
         }
     </style>
 </head>
@@ -69,7 +109,7 @@
             <p><strong>¿Querés adivinarlo?</strong></p>
             <p>Para ello... tendrás que Jugar al Juego del Ahorcado.</p>
             <p><strong>Seguí nuestras instrucciones</strong></p>
-            <p> <strong>1° Deberás adivinar qué significa C⁸</strong></p>
+            <p><strong>1° Deberás adivinar qué significa C⁸</strong></p>
             <p>Jugá a cada uno de los 8 niveles de la Sección C</p>
             <p>Consultá las pistas</p>
             <p>¡¡ A GANAR !!</p>
@@ -77,7 +117,7 @@
             <p>Jugá a cada uno de los 7 niveles de la Sección I</p>
             <p>Consultá las pistas</p>
             <p>¡¡ A GANAR !!</p>
-            <p> <strong>3° Deberás adivinar qué significa T⁶</strong></p>
+            <p><strong>3° Deberás adivinar qué significa T⁶</strong></p>
             <p>Jugá a cada uno de los 6 niveles de la Sección T</p>
             <p>Consultá las pistas</p>
             <p>¡¡ A GANAR !!</p>
@@ -87,6 +127,19 @@
             </div>
         </div>
     </div>
+
+    <div class="staff-container">
+        <% images.forEach(image => { %>
+            <div class="staff-member">
+                <div class="staff-photo">
+                    <img src="/images/<%= image.filename %>" alt="<%= image.name %>">
+                </div>
+                <div class="staff-text"><%= image.text %></div>
+                <div class="staff-name"><strong><%= image.name %></strong></div> <!-- Nombre en negrita -->
+            </div>
+        <% }); %>
+    </div>
+
     <!-- Fin del contenido principal -->
     <%- include('fragments/footer') %>
 
