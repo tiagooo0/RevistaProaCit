@@ -30,46 +30,162 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
         }
 
-        .staff-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 20px;
-            margin-bottom: 0; /* Elimina el margen inferior */
-            padding-bottom: 0; /* Elimina el relleno inferior */
-        }
 
-        .staff-member {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 10px;
-        }
+    /* Estilo para los miembros en una fila */
+.staff-members {
+    display: flex; /* Coloca los miembros en una fila */
+    justify-content: space-between; /* Espaciado entre los miembros */
+    gap: 20px; /* Espaciado entre los miembros */
+    flex-wrap: wrap; /* Permite que los elementos se ajusten a nuevas líneas */
+    overflow-x: auto; /* Permite el desplazamiento horizontal si hay demasiados elementos */
+}
 
-        .staff-photo {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
+/* Miembro de staff */
+.staff-member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px; /* Ajusta el tamaño de cada miembro */
+    margin-bottom: 20px; /* Espaciado inferior entre los miembros */
+    flex-grow: 1; /* Permite que los miembros crezcan proporcionalmente si es necesario */
+}
 
-        .staff-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+/* Estilo para las fotos de los miembros */
+.staff-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
 
-        .staff-name, .staff-text {
-            text-align: center;
-            margin-top: 5px;
-        }
+.staff-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
-        footer {
-            margin-top: 0; /* Elimina el margen superior */
-            padding-top: 0; /* Elimina el relleno superior */
-        }
-    </style>
+/* Estilo para el nombre y texto de los miembros */
+.staff-name, .staff-text {
+    text-align: center;
+    margin-top: 5px;
+}
+
+/* Estilo para el contenedor general */
+.staff-container-special-thanks {
+    display: flex;
+    flex-direction: column; /* Coloca todo en una columna */
+    align-items: center; /* Centra todo en el medio */
+    justify-content: center; /* Alinea los elementos verticalmente */
+    margin-top: 20px;
+    margin-bottom: 0; /* Elimina el margen inferior */
+    padding-bottom: 0; /* Elimina el relleno inferior */
+}
+.staff-container{
+display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.sobrenosotros-container{
+    margin-top: 20px;
+    text-align: center;
+}
+/* Estilo para el texto común debajo de los miembros */
+.staff-text-common {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Estilo para el pie de página */
+footer {
+    margin-top: 0; /* Elimina el margen superior */
+    padding-top: 0; /* Elimina el relleno superior */
+}
+
+/* Estilo para los administradores */
+.admin-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Alinea los miembros en el centro */
+    margin-top: 20px;
+}
+
+.admin-member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    width: 300px; /* Ancho fijo para cada miembro */
+}
+
+/* Estilo para la foto de los administradores */
+.admin-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-photo img {
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+/* Estilo para el texto de los administradores */
+.admin-text {
+    margin-left: 20px;
+    text-align: center;
+}
+
+.admin-name {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.admin-description {
+    font-size: 16px;
+}
+
+/* Media Queries para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .staff-members {
+        justify-content: center; /* Centra los elementos en pantallas pequeñas */
+    }
+
+    .staff-member {
+        width: 100%; /* Hace que los miembros ocupen el 100% del ancho en pantallas pequeñas */
+        margin-bottom: 20px; /* Espaciado entre miembros */
+    }
+
+    .staff-photo {
+        width: 120px; /* Ajusta el tamaño de las fotos en pantallas más pequeñas */
+        height: 120px;
+    }
+
+    .admin-container {
+        flex-direction: column;
+        align-items: center; /* Centra los elementos en pantallas pequeñas */
+    }
+
+    .admin-member {
+        width: 80%; /* Ajusta el ancho a un 80% en pantallas pequeñas */
+        margin-bottom: 20px; /* Espaciado entre miembros */
+    }
+
+    .admin-name {
+        font-size: 24px; /* Reduce el tamaño del nombre en pantallas pequeñas */
+    }
+
+    .admin-description {
+        font-size: 14px; /* Reduce el tamaño de la descripción */
+    }
+}
+
+
+        </style>
+        
 </head>
 <body>
     <!-- Navbar del sitio -->
@@ -127,18 +243,124 @@
             </div>
         </div>
     </div>
-
-    <div class="staff-container">
-        <% images.forEach(image => { %>
-            <div class="staff-member">
-                <div class="staff-photo">
-                    <img src="/images/<%= image.filename %>" alt="<%= image.name %>">
-                </div>
-                <div class="staff-text"><%= image.text %></div>
-                <div class="staff-name"><strong><%= image.name %></strong></div> <!-- Nombre en negrita -->
+    <div class="admin-container">
+        <div class="admin-member">
+            <div class="admin-photo">
+                <img src="/images/admin1.jpeg" alt="Admin 1">
             </div>
-        <% }); %>
+            <div class="admin-text">
+                <div class="admin-name" style="font-size: 30px;"><strong>Inspectora</strong></div>
+                <div class="admin-description" style="font-size: 16px;">Descripción del admin 1, incluyendo sus roles y contribuciones a la revista.</div>
+            </div>
+        </div>
+    
+        <div class="admin-member">
+            <div class="admin-photo">
+                <img src="/images/admin2.jpeg" alt="Admin 2">
+            </div>
+            <div class="admin-text">
+                <div class="admin-name" style="font-size: 30px;"><strong>Sandra Cerutti</strong></div>
+                <div class="admin-description" style="font-size: 16px;">Descripción del admin 2, con detalles sobre su participación en el proyecto.</div>
+            </div>
+        </div>
+    
+        <div class="admin-member">
+            <div class="admin-photo">
+                <img src="/images/imagen1.jpeg" alt="Admin 3">
+            </div>
+            <div class="admin-text">
+                <div class="admin-name" style="font-size: 30px;"><strong>Luciana Silber</strong></div>
+                <div class="admin-description" style="font-size: 16px;">Sentidos de Nuestra Revista ProA C⁸ I⁷ T⁶ 
+
+                    Nuestra Revista ProA C⁸ I⁷ T⁶ nace como Proyecto desde el Club de Ciencias  que se dicta en 5to año del ciclo orientado de nuestra Escuela PRoA Capital Centro.
+                    
+                    Diseñada como Publicación Digital que  incluye animaciones multimedia, videos,  enlaces, QR, para que sea más interactiva y estéticamente atractiva.
+                    
+                    Creada utilizando metodologías ágiles que promueven el protagonismo de los estudiantes en la gestión, ejecución del Proyecto.
+                    
+                    Será  transmitida a la comunidad escolar de PROA  y de las Escuelas Técnicas de Córdoba online, a través de la socialización de su QR, con la intención que pueda ser apropiada  por la mismas, generando instancias de participación, colaboración y encuentro futuro, valores fundamentales de convivencia que sostenemos
+                    
+                    Apuesta a que los estudiantes, puedan ampliar sus horizontes culturales y personales, favoreciendo su participación activa, en diversas experiencias de carácter lúdico, creativo e innovador que puedan plasmarse en cada sección de la misma.
+                    
+                    Aspira  a  que sea un espacio  para generar nuevas ideas y oportunidades, para hacerse preguntas que abran nuevos sentidos, que inviten a la indagación, a la reflexión, a construir  conocimiento, con Otros.
+                    
+                    Promueve el Aprender haciendo, a partir de la exploración, la experiencia y la recuperación y puesta en juego de saberes previos de la orientación, la articulación con los proyectos priorizados, los provenientes del campo de las Ciencias, la Innovación, las Tecnologías, el Arte,  la Cultura, de la Sociedad  y de todas las áreas del conocimiento.
+                    
+                    Intenta ofrecer posibilidades de enfrentarse a desafíos, a propuestas que sean auténticas, relevantes socialmente y de interés para las y los estudiantes.
+                    
+                    La Revista ProA C⁸ I⁷ T⁶ nace hoy 15 de Noviembre del año 2023,” Día de las Escuelas Técnicas” en el corazón de nuestra Escuela PROA Capital Centro, Escuela Pública Técnica Cordobesa con el deseo  que pueda  navegar en el Territorio Cordobés, sumando viajeros, saberes, experiencias, destinos.
+                    
+                    Será publicada cada año en este importante día para recordar y valorar el sentido de construcción de este día: ”Contribuir desde la educación a formar jóvenes que se vinculen con ámbitos formativos, socio productivos y de la economía del conocimiento, aportando su ser y saber”
+                    
+                     
+                    
+                                                                                                                        Prof. Luciana Silber</div>
+            </div>
+        </div>
     </div>
+   <!-- Sección de Agradecimientos Especiales -->
+<div class="staff-container-special-thanks">
+    <h2 class="text-center text-danger mb-4">Agradecimientos Especiales</h2>
+    
+    <!-- Contenedor de miembros en fila -->
+    <div class="staff-members">
+        <!-- Miembro 1 -->
+        <div class="staff-member">
+            <div class="staff-photo">
+                <img src="/images/persona1.jpeg" alt="Juan Pérez">
+            </div>
+            <div class="staff-name"><strong>Juan Pérez</strong></div>
+        </div>
+
+        <!-- Miembro 2 -->
+        <div class="staff-member">
+            <div class="staff-photo">
+                <img src="/images/persona2.jpeg" alt="María López">
+            </div>
+            <div class="staff-name"><strong>María López</strong></div>
+        </div>
+
+        <!-- Miembro 3 -->
+        <div class="staff-member">
+            <div class="staff-photo">
+                <img src="/images/persona3.jpeg" alt="Carlos Gómez">
+            </div>
+            <div class="staff-name"><strong>Carlos Gómez</strong></div>
+        </div>
+    </div>
+
+    <!-- Texto común debajo -->
+    <div class="staff-text-common">
+        <p>Agradecemos profundamente a todos estos increíbles colaboradores por su dedicación y esfuerzo. ¡Gracias por ser parte de este proyecto!</p>
+    </div>
+</div>
+
+<div class="staff-container">
+    <% images.forEach(image => { %>
+        <div class="staff-member">
+            <div class="staff-photo">
+                <img src="/images/<%= image.filename %>" alt="<%= image.name %>">
+            </div>
+            <div class="staff-text"><%= image.text %></div>
+            <div class="staff-name"><strong><%= image.name %></strong></div> <!-- Nombre en negrita -->
+        </div>
+    <% }); %>
+
+    <!-- Texto de Sobre Nosotros -->
+    <div class="sobrenosotros-container">
+        <p><strong>SOBRE NOSOTROS</strong><br>
+            Somos estudiantes de 5to año de la Escuela ProA Capital Centro. 
+            
+            En nuestro espacio del Club de Ciencias nos propusimos junto con la Profesora Luciana Silber crear una Revista ProA C⁸ I⁷ T⁶ Multimedial escolar, crítica, digital, que tod@s puedan leer.
+            
+            Queremos compartir conocimientos, experiencias, valores, temas que nos interpelan como jóvenes en un mundo complejo, cambiante y globalizado.
+            
+            Como estudiantes comprometidos con la innovación y el progreso en pos de contribuir a mejorar la realidad nos proponemos realizar notas, entrevistas, registros fotográficos de experiencias y noticias de lo último en ciencia y tecnología.
+            
+            INVITÁNDOLOS A APROPIARSE DE LA Revista ProA C⁸ I⁷ T⁶ subiéndote a nuestro barco a vela. Navegando para llegar juntos a muchos puertos, a veces con viento a favor y otras no. Sumando viajeros, saberes experiencias, destinos. Avanzando con rumbos claros, sin miedo a naufragar entre las olas desafiantes de la Ciencia, la Innovación y la Tecnología.
+        </p>
+    </div>
+</div>
 
     <!-- Fin del contenido principal -->
     <%- include('fragments/footer') %>

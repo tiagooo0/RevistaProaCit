@@ -4,7 +4,7 @@ const moment = require('moment');
 // Arreglo de imágenes para mostrar en index.ejs
 const images = [
     { filename: 'imagen1.jpeg', name: 'Luciana Silber', text: ' Profesora, Liderazgo, Energia' },
-    { filename: 'imagen2.jpeg', name: 'Tiago Hurst', text: 'Empatico, Trabajador, Inteligente' },
+    { filename: 'imagen2.jpeg', name: 'Tiago Hürst', text: 'Empatico, Trabajador, Inteligente' },
     { filename: 'imagen3.jpeg', name: 'Mayra Rodrigez', text: 'Creativa, Responsable, Positiva' },
     { filename: 'imagen4.jpeg', name: 'Santino Giambartolomei', text: 'Empatico, Trabajador, Disiplinado' },
     { filename: 'imagen5.jpeg', name: 'Thiago Caballerro', text: 'Valiente, Enfocado, Soñador' },
@@ -13,7 +13,7 @@ const images = [
     { filename: 'imagen8.jpeg', name: 'Thiago Sartore', text: 'Timido, Humilde, Tranquilo' },
     { filename: 'imagen9.jpeg', name: 'Lucas Tuninetti', text: 'Honesto, Inspirador, Analitico' },
     { filename: 'imagen10.jpeg', name: 'Lorenzo Gallardo', text: 'Sociable, Responsable, Colaborativo' },
-    { filename: 'imagen11.jpeg', name: 'Hernan Torres', text: 'Distrido, Gracioso, Sinverguenza' },
+    { filename: 'imagen11.jpeg', name: 'Hernan Torres', text: 'Distrido, Gracioso, Sinvergüenza' },
     { filename: 'imagen12.jpeg', name: 'Franco Racca', text: 'Bizarro, Feliz, Gracioso' },
     { filename: 'imagen13.jpeg', name: 'Leandro Rios', text: 'Amigable, Timido, Gran Programador' },
     { filename: 'imagen14.jpeg', name: 'Santino Heredia', text: 'Solidario, Audaz, Tenaz' },
