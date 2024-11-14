@@ -108,7 +108,6 @@ footer {
     margin-top: 0; /* Elimina el margen superior */
     padding-top: 0; /* Elimina el relleno superior */
 }
-
 /* Estilo para los administradores */
 .admin-container {
     display: flex;
@@ -119,10 +118,10 @@ footer {
 
 .admin-member {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     margin: 20px;
-    width: 300px; /* Ancho fijo para cada miembro */
+    width: 90%; /* Ocupa el 90% del contenedor principal */
+    max-width: 800px; /* Limita el ancho máximo */
 }
 
 /* Estilo para la foto de los administradores */
@@ -132,32 +131,34 @@ footer {
     border-radius: 50%;
     overflow: hidden;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin-right: 20px; /* Espacio entre la imagen y el texto */
 }
 
 .admin-photo img {
     width: 100%; /* La imagen se adapta al ancho del contenedor */
     height: 100%; /* La imagen se adapta a la altura del contenedor */
-    object-fit: cover; /* Recorta la imagen manteniendo la proporción y asegurando que siempre llene el contenedor */
+    object-fit: cover; /* Recorta la imagen manteniendo la proporción */
 }
-
 
 /* Estilo para el texto de los administradores */
 .admin-text {
-    margin-left: 20px;
-    text-align: center;
+    flex: 1;
+    max-width: 600px; /* Limita el ancho máximo del texto */
+    text-align: left;
 }
 
 .admin-name {
-    font-size: 30px;
+    font-size: 24px;
     font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
 }
 
 .admin-description {
     font-size: 16px;
+    margin-top: 10px;
 }
+
 
 /* Media Queries para pantallas más pequeñas */
 @media (max-width: 768px) {
@@ -346,7 +347,7 @@ footer {
     </div>
 </div>
 
-<h2 class="staff-title">STAFF</h2>
+<h2 class="staff-title">Staff</h2>
 
 <div class="staff-container">
     <% images.forEach(image => { %>
