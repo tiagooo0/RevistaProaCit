@@ -130,8 +130,11 @@ footer {
 }
 
 .admin-photo img {
-    height: auto; /* Mantiene la proporción de la imagen */
+    width: 100%; /* La imagen se adapta al ancho del contenedor */
+    height: 100%; /* La imagen se adapta a la altura del contenedor */
+    object-fit: cover; /* Recorta la imagen manteniendo la proporción y asegurando que siempre llene el contenedor */
 }
+
 
 /* Estilo para el texto de los administradores */
 .admin-text {
@@ -246,7 +249,7 @@ footer {
     <div class="admin-container">
         <div class="admin-member">
             <div class="admin-photo">
-                <img src="/images/admin1.jpeg" alt="Admin 1">
+                <img src="/images/imagen23.jpeg" alt="Admin 1">
             </div>
             <div class="admin-text">
                 <div class="admin-name" style="font-size: 30px;"><strong>Inspectora</strong></div>
@@ -256,7 +259,7 @@ footer {
     
         <div class="admin-member">
             <div class="admin-photo">
-                <img src="/images/admin2.jpeg" alt="Admin 2">
+                <img src="/images/imagen24.jpeg" alt="Admin 2">
             </div>
             <div class="admin-text">
                 <div class="admin-name" style="font-size: 30px;"><strong>Sandra Cerutti</strong></div>
@@ -307,25 +310,25 @@ footer {
         <!-- Miembro 1 -->
         <div class="staff-member">
             <div class="staff-photo">
-                <img src="/images/persona1.jpeg" alt="Juan Pérez">
+                <img src="/images/imagen25.jpeg" alt="Juan Pérez">
             </div>
-            <div class="staff-name"><strong>Juan Pérez</strong></div>
+            <div class="staff-name"><strong>deivid</strong></div>
         </div>
 
         <!-- Miembro 2 -->
         <div class="staff-member">
             <div class="staff-photo">
-                <img src="/images/persona2.jpeg" alt="María López">
+                <img src="/images/imagen26.jpeg" alt="María López">
             </div>
-            <div class="staff-name"><strong>María López</strong></div>
+            <div class="staff-name"><strong>evelina</strong></div>
         </div>
 
         <!-- Miembro 3 -->
         <div class="staff-member">
             <div class="staff-photo">
-                <img src="/images/persona3.jpeg" alt="Carlos Gómez">
+                <img src="/images/imagen24.jpeg" alt="Carlos Gómez">
             </div>
-            <div class="staff-name"><strong>Carlos Gómez</strong></div>
+            <div class="staff-name"><strong>sandra</strong></div>
         </div>
     </div>
 
