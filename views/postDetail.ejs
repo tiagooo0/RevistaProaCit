@@ -21,11 +21,12 @@
     
         .img-fluid, .video-fluid {
             max-width: 100%;
-            width: 80%; /* Ajusta este valor al tamaño deseado */
-            height: 450px; /* Ajusta este valor para cambiar la altura */
+            width: 100%; /* Se ajusta automáticamente al ancho del contenedor */
+            height: auto; /* Mantiene la proporción */
             border-radius: 15px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             margin-top: 20px;
+            object-fit: contain; /* Se ajusta sin recortar, manteniendo la proporción */
         }
     
         .text-muted {
