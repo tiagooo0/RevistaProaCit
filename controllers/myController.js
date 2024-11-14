@@ -25,6 +25,10 @@ const images = [
     { filename: 'imagen20.jpeg', name: 'Milagros Colman', text: 'Compañera, Graciosa, Mandona' },
     { filename: 'imagen21.jpeg', name: 'Julian Cabrera', text: 'Carismatico, Responsable, Compañero' },
     { filename: 'imagen22.jpeg', name: 'Ingrid Sension', text: 'Alegre, Proactiva, Graciosa' },
+    { filename: 'imagen27.jpeg', name: 'Thiago Jofre', text: 'Empatico, Trabajador, Disciplinado' },
+    { filename: 'imagen28.jpeg', name: 'Axel Ramirez', text: 'Valiente, Generoso, Divertido ' },
+    { filename: 'imagen29.jpeg', name: 'Emanuel Isa', text: 'Optimista, Honesto, Amable' },
+
 ];
 
 // Función para formatear texto con URLs
