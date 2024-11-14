@@ -136,7 +136,20 @@ footer {
     font-size: 16px;
     margin-top: 10px;
 }
-
+.admin-container {
+    text-align: center; /* Centra el texto horizontalmente */
+    position: relative;
+    padding-top: 20px; /* Espacio superior */
+  }
+  
+  .admin-container h3 {
+    position: absolute; /* Permite posicionar el h3 sin afectar el flujo del documento */
+    top: 0; /* Lo coloca en la parte superior */
+    left: 50%; /* Lo coloca en el centro horizontal */
+    transform: translateX(-50%); /* Ajusta para que esté perfectamente centrado */
+    margin: 0; /* Elimina márgenes por defecto */
+  }
+  
 
 /* Media Queries para pantallas más pequeñas */
 @media (max-width: 768px) {
@@ -244,6 +257,8 @@ footer {
         </div>
     </div>
     <div class="admin-container">
+        <h3 >Editorial</h3>
+
         <div class="admin-member">
             <div class="admin-photo">
                 <img src="/images/imagen23.jpeg" alt="Admin 1">
@@ -364,16 +379,16 @@ footer {
     <h2 class=" staff-title text-center text-danger mb-4">Editores</h2>
     <div class="staff-members">
     <div class="staff-member">
+            <div class="staff-photo">
+                <img src="/images/imagen3.jpeg" alt="Mayra Rodriguez">
+            </div>
+            <div class="staff-name"><strong>Mayra Rodriguez</strong></div>
+    </div>
+    <div class="staff-member">
         <div class="staff-photo">
             <img src="/images/imagen2.jpeg" alt="Tiago Hurst">
         </div>
         <div class="staff-name"><strong>Tiago Hürst</strong></div>
-    </div>
-    <div class="staff-member">
-        <div class="staff-photo">
-            <img src="/images/imagen3.jpeg" alt="Mayra Rodriguez">
-        </div>
-        <div class="staff-name"><strong>Mayra Rodriguez</strong></div>
     </div>
     <div class="staff-member">
         <div class="staff-photo">
