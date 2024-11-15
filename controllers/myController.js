@@ -27,7 +27,7 @@ const images = [
     { filename: 'imagen27.jpeg', name: 'Thiago Jofre', text: 'Empatico, Trabajador, Disciplinado' },
     { filename: 'imagen8.jpeg', name: 'Thiago Sartore', text: 'Timido, Humilde, Tranquilo' },
     { filename: 'imagen2.jpeg', name: 'Tiago Hürst', text: 'Empatico, Trabajador, Inteligente' },
-    { filename: 'imagen16.jpeg', name: 'Tomas Williams', text: 'Sincero, Resiliente, Capaz' }
+    { filename: 'imagen30.jpeg', name: 'Tomas Williams', text: 'Sincero, Resiliente, Capaz' }
 ];
 
 
