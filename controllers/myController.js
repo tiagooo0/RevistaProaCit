@@ -5,7 +5,7 @@ const moment = require('moment');
 const images = [
     { filename: 'imagen28.jpeg', name: 'Axel Ramirez', text: 'Valiente, Generoso, Divertido ' },
     { filename: 'imagen19.jpeg', name: 'Bianca Diaz', text: 'Interesante, Divertida, Alegre' },
-    { filename: 'imagen17.jpeg', name: 'Camila Gonzales', text: 'Sincera, Amigable, Simpatica' },
+    { filename: 'imagen17.jpeg', name: 'Camila Gonzalez', text: 'Sincera, Amigable, Simpatica' },
     { filename: 'imagen7.jpeg', name: 'Cristian Tello', text: 'Gracioso, Hablador, Valiente' },
     { filename: 'imagen15.jpeg', name: 'Dante Espinoza', text: 'Feliz, Divertido, Gracioso' },
     { filename: 'imagen29.jpeg', name: 'Emanuel Isa', text: 'Optimista, Honesto, Amable' },
