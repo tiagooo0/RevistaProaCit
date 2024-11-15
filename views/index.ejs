@@ -149,7 +149,45 @@ footer {
     transform: translateX(-50%); /* Ajusta para que esté perfectamente centrado */
     margin: 0; /* Elimina márgenes por defecto */
   }
-  
+  .staff-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Espaciado entre los elementos */
+    justify-content: flex-start; /* Alinea los elementos a la izquierda */
+}
+
+.staff-member {
+    width: 200px; /* Ancho de cada tarjeta de profesor */
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+    background: #f9f9f9;
+    transition: transform 0.3s ease;
+}
+
+.staff-member:hover {
+    transform: translateY(-5px); /* Efecto de elevación al pasar el cursor */
+}
+
+.staff-photo img {
+    width: 100%;
+    border-radius: 50%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.staff-text {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.staff-name {
+    font-size: 14px;
+    color: #666;
+}
+
 
 /* Media Queries para pantallas más pequeñas */
 @media (max-width: 768px) {
@@ -375,6 +413,20 @@ footer {
         </div>
     </div>
     <p>Agradecemos de todo corazon a este gran equipo directivo por acompañar y formar parte de este proyecto</p>
+    <h2 class="staff-title">Docentes Participantes</h2>
+
+    <div class="staff-container">
+        <% professors.forEach(professor => { %>
+            <div class="staff-member">
+                <div class="staff-photo">
+                    <img src="/images/<%= professor.filename %>" alt="<%= professor.name %>">
+                </div>
+                <div class="staff-text"><%= professor.name %></div>
+                <div class="staff-name"><strong><%= professor.subject %></strong></div> <!-- Materia en negrita -->
+            </div>
+        <% }); %>
+    </div>
+    
     <h2 class=" staff-title text-center text-danger mb-4">Editores</h2>
     <div class="staff-members">
     <div class="staff-member">

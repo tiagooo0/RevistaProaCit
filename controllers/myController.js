@@ -30,6 +30,21 @@ const images = [
     { filename: 'imagen30.jpeg', name: 'Tomas Williams', text: 'Sincero, Resiliente, Capaz' }
 ];
 
+const professors = [
+    { filename: 'professor1.jpeg', name: 'Paola Murua', subject: 'Biología' },
+    { filename: 'professor2.jpeg', name: 'Milagros Tassi', subject: 'Quimica' },
+    { filename: 'professor3.jpeg', name: 'Eugenia Ferrero', subject: 'Educación Fisica' },
+    { filename: 'professor4.jpeg', name: 'Manuel Garcia', subject: 'Fisica' },
+    { filename: 'professor5.jpeg', name: 'Valentina Goldrai', subject: 'Lengua y Literatura' },
+    { filename: 'professor6.jpeg', name: 'Sebastian Del Caño', subject: 'Historia' },
+    { filename: 'professor7.jpeg', name: 'Lucia Bassi', subject: 'Historia' },
+    { filename: 'professor8.jpeg', name: 'Hector Garcia', subject: 'Programacion' },
+    { filename: 'professor9.jpeg', name: 'Florencia Aizemberg', subject: 'Lengua' },
+    { filename: 'professor10.jpeg', name: 'Gerardo Cordero', subject: 'Teatro' }
+];
+
+
+
 
 // Función para formatear texto con URLs
 function formatUrls(text) {
@@ -47,7 +62,11 @@ exports.inicio = (req, res) => {
         return image;
     });
 
-    res.status(200).render('index', { images: formattedImages });
+    // Renderizar la vista pasando tanto images como professors
+    res.status(200).render('index', { 
+        images: formattedImages, 
+        professors: professors // Asegúrate de pasar también el arreglo de profesores
+    });
 };
 
 // Mostrar el formulario para crear un nuevo post
