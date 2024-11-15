@@ -3,33 +3,33 @@ const moment = require('moment');
 
 // Arreglo de imágenes para mostrar en index.ejs
 const images = [
-    { filename: 'imagen1.jpeg', name: 'Luciana Silber', text: ' Profesora, Liderazgo, Energia' },
-    { filename: 'imagen2.jpeg', name: 'Tiago Hürst', text: 'Empatico, Trabajador, Inteligente' },
-    { filename: 'imagen3.jpeg', name: 'Mayra Rodriguez', text: 'Creativa, Responsable, Positiva' },
-    { filename: 'imagen4.jpeg', name: 'Santino Giambartolomei', text: 'Empatico, Trabajador, Disiplinado' },
-    { filename: 'imagen5.jpeg', name: 'Thiago Caballerro', text: 'Valiente, Enfocado, Soñador' },
-    { filename: 'imagen6.jpeg', name: 'Santiago Avalo', text: 'Comico, Feliz, Humilde' },
-    { filename: 'imagen7.jpeg', name: 'Cristian Tello', text: 'Gracioso, Hablador, Valiente' },
-    { filename: 'imagen8.jpeg', name: 'Thiago Sartore', text: 'Timido, Humilde, Tranquilo' },
-    { filename: 'imagen9.jpeg', name: 'Lucas Tuninetti', text: 'Honesto, Inspirador, Analitico' },
-    { filename: 'imagen10.jpeg', name: 'Lorenzo Gallardo', text: 'Sociable, Responsable, Colaborativo' },
-    { filename: 'imagen11.jpeg', name: 'Hernan Torres', text: 'Distrido, Gracioso, Sinvergüenza' },
-    { filename: 'imagen12.jpeg', name: 'Franco Racca', text: 'Bizarro, Feliz, Gracioso' },
-    { filename: 'imagen13.jpeg', name: 'Leandro Rios', text: 'Amigable, Timido, Gran Programador' },
-    { filename: 'imagen14.jpeg', name: 'Santino Heredia', text: 'Solidario, Audaz, Tenaz' },
-    { filename: 'imagen15.jpeg', name: 'Dante Espinoza', text: 'Feliz, Divertido, Gracioso' },
-    { filename: 'imagen16.jpeg', name: 'Tomas Williams', text: 'Sincero, Resiliente, Capaz' },
-    { filename: 'imagen17.jpeg', name: 'Camila Gonzales', text: 'Sincera, Amigable, Simpatica' },
-    { filename: 'imagen18.jpeg', name: 'Martina Nievas', text: 'Creativa, Sociable, Determinada' },
-    { filename: 'imagen19.jpeg', name: 'Bianca Diaz', text: 'Interesante, Divertida, Alegre' },
-    { filename: 'imagen20.jpeg', name: 'Milagros Colman', text: 'Compañera, Graciosa, Mandona' },
-    { filename: 'imagen21.jpeg', name: 'Julian Cabrera', text: 'Carismatico, Responsable, Compañero' },
-    { filename: 'imagen22.jpeg', name: 'Ingrid Sension', text: 'Alegre, Proactiva, Graciosa' },
-    { filename: 'imagen27.jpeg', name: 'Thiago Jofre', text: 'Empatico, Trabajador, Disciplinado' },
     { filename: 'imagen28.jpeg', name: 'Axel Ramirez', text: 'Valiente, Generoso, Divertido ' },
+    { filename: 'imagen19.jpeg', name: 'Bianca Diaz', text: 'Interesante, Divertida, Alegre' },
+    { filename: 'imagen17.jpeg', name: 'Camila Gonzales', text: 'Sincera, Amigable, Simpatica' },
+    { filename: 'imagen7.jpeg', name: 'Cristian Tello', text: 'Gracioso, Hablador, Valiente' },
+    { filename: 'imagen15.jpeg', name: 'Dante Espinoza', text: 'Feliz, Divertido, Gracioso' },
     { filename: 'imagen29.jpeg', name: 'Emanuel Isa', text: 'Optimista, Honesto, Amable' },
-
+    { filename: 'imagen12.jpeg', name: 'Franco Racca', text: 'Bizarro, Feliz, Gracioso' },
+    { filename: 'imagen11.jpeg', name: 'Hernan Torres', text: 'Distrido, Gracioso, Sinvergüenza' },
+    { filename: 'imagen22.jpeg', name: 'Ingrid Sension', text: 'Alegre, Proactiva, Graciosa' },
+    { filename: 'imagen21.jpeg', name: 'Julian Cabrera', text: 'Carismatico, Responsable, Compañero' },
+    { filename: 'imagen13.jpeg', name: 'Leandro Rios', text: 'Amigable, Timido, Gran Programador' },
+    { filename: 'imagen10.jpeg', name: 'Lorenzo Gallardo', text: 'Sociable, Responsable, Colaborativo' },
+    { filename: 'imagen9.jpeg', name: 'Lucas Tuninetti', text: 'Honesto, Inspirador, Analitico' },
+    { filename: 'imagen1.jpeg', name: 'Luciana Silber', text: 'Profesora, Liderazgo, Energia' },
+    { filename: 'imagen18.jpeg', name: 'Martina Nievas', text: 'Creativa, Sociable, Determinada' },
+    { filename: 'imagen3.jpeg', name: 'Mayra Rodriguez', text: 'Creativa, Responsable, Positiva' },
+    { filename: 'imagen20.jpeg', name: 'Milagros Colman', text: 'Compañera, Graciosa, Mandona' },
+    { filename: 'imagen6.jpeg', name: 'Santiago Avalo', text: 'Comico, Feliz, Humilde' },
+    { filename: 'imagen4.jpeg', name: 'Santino Giambartolomei', text: 'Empatico, Trabajador, Disiplinado' },
+    { filename: 'imagen14.jpeg', name: 'Santino Heredia', text: 'Solidario, Audaz, Tenaz' },
+    { filename: 'imagen5.jpeg', name: 'Thiago Caballerro', text: 'Valiente, Enfocado, Soñador' },
+    { filename: 'imagen27.jpeg', name: 'Thiago Jofre', text: 'Empatico, Trabajador, Disciplinado' },
+    { filename: 'imagen8.jpeg', name: 'Thiago Sartore', text: 'Timido, Humilde, Tranquilo' },
+    { filename: 'imagen2.jpeg', name: 'Tiago Hürst', text: 'Empatico, Trabajador, Inteligente' },
+    { filename: 'imagen16.jpeg', name: 'Tomas Williams', text: 'Sincero, Resiliente, Capaz' }
 ];
+
 
 // Función para formatear texto con URLs
 function formatUrls(text) {
