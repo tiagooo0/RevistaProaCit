@@ -54,6 +54,26 @@ function formatUrls(text) {
     });
 }
 
+exports.addComment = async (req, res) => {
+    try {
+        const { username, content } = req.body;
+        const postId = req.params.id;
+
+        const post = await Post.findById(postId);
+        if (!post) {
+            return res.status(404).send("Post no encontrado");
+        }
+
+        post.comments.push({ username, content, date: moment().toDate() });
+        await post.save();
+
+        res.redirect(`/post/${postId}`);
+    } catch (err) {
+        console.error(err);
+        res.status(400).send("Error al agregar el comentario");
+    }
+};
+
 // Controlador para la página de inicio
 exports.inicio = (req, res) => {
     // Formatear las URLs en el texto de las imágenes

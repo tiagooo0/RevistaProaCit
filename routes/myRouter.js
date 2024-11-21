@@ -15,7 +15,8 @@ router.post('/create', isAuthenticated, postController.createPost);
 
 // Mostrar posts por categoría
 router.get('/category/:category', postController.postsByCategory);
-
+// Agregar un comentario a un post
+router.post('/post/:id/comments', postController.addComment);
 // Mostrar un post individual
 router.get('/post/:id', postController.getPost);
 
