@@ -140,16 +140,17 @@ footer {
     text-align: center; /* Centra el texto horizontalmente */
     position: relative;
     padding-top: 20px; /* Espacio superior */
-  }
-  
-  .admin-container h3 {
+}
+
+.admin-container h3 {
     position: absolute; /* Permite posicionar el h3 sin afectar el flujo del documento */
     top: 0; /* Lo coloca en la parte superior */
     left: 50%; /* Lo coloca en el centro horizontal */
     transform: translateX(-50%); /* Ajusta para que esté perfectamente centrado */
     margin: 0; /* Elimina márgenes por defecto */
-  }
-  .staff-container {
+}
+
+.staff-container {
     display: flex;
     flex-wrap: wrap;
     gap: 20px; /* Espaciado entre los elementos */
@@ -188,45 +189,68 @@ footer {
     color: #666;
 }
 
+.like-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    color: #e63946; /* Rojo vivo */
+    transition: transform 0.9s ease;
+    user-select: none; /* Evita selección de texto accidental */
+}
+.like-container:hover {
+    transform: scale(1.4, 2); /* Efecto de agrandamiento */
+    transform-origin: center; /* Asegura que el agrandamiento ocurra desde el centro */
+}
+.like-counter {
+    font-size: 24px;
+    color: #333; /* Color del número */
+    font-weight: bold;
+    margin-left: 5px;
+}
 
-/* Media Queries para pantallas más pequeñas */
-@media (max-width: 768px) {
-    .staff-members {
-        justify-content: center; /* Centra los elementos en pantallas pequeñas */
-    }
+.like-container:active .heart {
+    transform: scale(2.2); /* Corazón aumenta temporalmente al hacer clic */
+}
 
-    .staff-member {
-        width: 100%; /* Hace que los miembros ocupen el 100% del ancho en pantallas pequeñas */
-        margin-bottom: 20px; /* Espaciado entre miembros */
-    }
+.sobrenosotros-container {
+    display: flex;
+    justify-content: center; /* Centra el contenedor */
+    align-items: center; /* Centra verticalmente */
+}
 
-    .staff-photo {
-        width: 120px; /* Ajusta el tamaño de las fotos en pantallas más pequeñas */
-        height: 120px;
-    }
-
-    .admin-container {
-        flex-direction: column;
-        align-items: center; /* Centra los elementos en pantallas pequeñas */
-    }
-
-    .admin-member {
-        width: 80%; /* Ajusta el ancho a un 80% en pantallas pequeñas */
-        margin-bottom: 20px; /* Espaciado entre miembros */
-    }
-
-    .admin-name {
-        font-size: 24px; /* Reduce el tamaño del nombre en pantallas pequeñas */
-    }
-
-    .admin-description {
-        font-size: 14px; /* Reduce el tamaño de la descripción */
-    }
+.staff-container-special-thanks {
+    display: flex;
+    justify-content: space-between; /* Espacio entre el texto y el logo */
+    align-items: center;
+    width: 100%;
+    padding: 20px;
 }
 
 
+.like-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+    color: #e63946; /* Color del texto */
+    justify-content: center;
+}
+
+.like-container img {
+    margin-left: 9rcap; /* Aleja el logo hacia la derecha */
+}
+
+.text-center {
+    margin: 0; /* Elimina margen por defecto del h1 */
+}
+
+.text-danger {
+    font-size: 2rem; /* Asegura que el texto "Revista ProA" no se reduzca */
+}
         </style>
-        
 </head>
 <body>
     <!-- Navbar del sitio -->
@@ -234,12 +258,25 @@ footer {
     <!-- Fin del navbar del sitio -->
 
     <!-- Contenido principal -->
-    <div class="container mt-5">
-        <div class="text-center">
-            <img src="/images/logoCIT.png" alt="Logo CIT" class="img-fluid" style="max-width: 150px; height: auto;" />
+    <div class="sobrenosotros-container">
+        <div class="like-container">
+            <img src="/images/logoCIT.png" alt="Logotipo" style="border: 10px #333;" width="50" height="50">
+            <span style="color: #333;">Visitantes</span> <!-- Valor dinámico -->
+            <span id="like-counter" class="like-counter"><%= visitCount %></span>
         </div>
-        
-        <h1 class="text-center text-danger mt-3">Revista ProA C⁸ I⁷ T⁶</h1>
+    </div>
+    <h1 class="text-center text-danger mt-3">Revista ProA C⁸ I⁷ T⁶</h1>
+    
+    <script>
+        // No necesitas una función adicional si el valor ya se pasa desde el servidor
+        // Solo asegúrate de que el contador se actualiza en la interfaz al renderizar la página.
+        // Lo que ya haces con la línea:
+        // document.getElementById('like-counter').textContent = '<%= visitCount %>';
+    </script>
+    
+    
+        <%# -------------------------------------------------------------- %>
+
         <h2 class="text-center text-danger">Revista Multimedial Escolar de Ciencia, Innovación y Tecnología</h2>
 
         <div class="row mt-5">
