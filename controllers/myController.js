@@ -1,5 +1,6 @@
 const Post = require('../models/myModel');
 const moment = require('moment');
+const Visit = require('../models/visitModel'); // Asegúrate de importar el modelo de visitas
 
 // Arreglo de imágenes para mostrar en index.ejs
 const images = [
@@ -43,9 +44,6 @@ const professors = [
     { filename: 'professor10.jpeg', name: 'Gerardo Cordero', subject: 'Teatro' }
 ];
 
-
-
-
 // Función para formatear texto con URLs
 function formatUrls(text) {
     const urlRegex = /(https?:\/\/[^\s]+)/g;
@@ -54,38 +52,33 @@ function formatUrls(text) {
     });
 }
 
-exports.addComment = async (req, res) => {
-    try {
-        const { username, content } = req.body;
-        const postId = req.params.id;
-
-        const post = await Post.findById(postId);
-        if (!post) {
-            return res.status(404).send("Post no encontrado");
-        }
-
-        post.comments.push({ username, content, date: moment().toDate() });
-        await post.save();
-
-        res.redirect(`/post/${postId}`);
-    } catch (err) {
-        console.error(err);
-        res.status(400).send("Error al agregar el comentario");
-    }
-};
-
 // Controlador para la página de inicio
-exports.inicio = (req, res) => {
+exports.inicio = async (req, res) => {
     // Formatear las URLs en el texto de las imágenes
     const formattedImages = images.map(image => {
         image.text = formatUrls(image.text);
         return image;
     });
 
-    // Renderizar la vista pasando tanto images como professors
+    // Incrementar contador de visitas
+    let visitCount = 0;
+    try {
+        // Se incrementa el contador de visitas en la base de datos
+        const visit = await Visit.findOneAndUpdate(
+            { page: 'index' },
+            { $inc: { count: 1 } },
+            { new: true, upsert: true } // Si no existe, se crea un nuevo registro
+        );
+        visitCount = visit.count; // Obtener el nuevo contador de visitas
+    } catch (err) {
+        console.error("Error al actualizar el contador de visitas", err);
+    }
+
+    // Renderizar la vista pasando tanto images, professors y el contador de visitas
     res.status(200).render('index', { 
         images: formattedImages, 
-        professors: professors // Asegúrate de pasar también el arreglo de profesores
+        professors: professors,
+        visitCount: visitCount  // Asegurarse de pasar el valor actualizado del contador
     });
 };
 
