@@ -17,7 +17,6 @@ const images = [
     { filename: 'imagen13.jpeg', name: 'Leandro Rios', text: 'Amigable, Timido, Gran Programador' },
     { filename: 'imagen10.jpeg', name: 'Lorenzo Gallardo', text: 'Sociable, Responsable, Colaborativo' },
     { filename: 'imagen9.jpeg', name: 'Lucas Tuninetti', text: 'Honesto, Inspirador, Analitico' },
-    { filename: 'imagen1.jpeg', name: 'Luciana Silber', text: 'Profesora, Liderazgo, Energia' },
     { filename: 'imagen18.jpeg', name: 'Martina Nievas', text: 'Creativa, Sociable, Determinada' },
     { filename: 'imagen3.jpeg', name: 'Mayra Rodriguez', text: 'Creativa, Responsable, Positiva' },
     { filename: 'imagen20.jpeg', name: 'Milagros Colman', text: 'Compañera, Graciosa, Mandona' },
@@ -28,7 +27,8 @@ const images = [
     { filename: 'imagen27.jpeg', name: 'Thiago Jofre', text: 'Empatico, Trabajador, Disciplinado' },
     { filename: 'imagen8.jpeg', name: 'Thiago Sartore', text: 'Timido, Humilde, Tranquilo' },
     { filename: 'imagen2.jpeg', name: 'Tiago Hürst', text: 'Empatico, Trabajador, Inteligente' },
-    { filename: 'imagen30.jpeg', name: 'Tomas Williams', text: 'Sincero, Resiliente, Capaz' }
+    { filename: 'imagen30.jpeg', name: 'Tomas Williams', text: 'Sincero, Resiliente, Capaz' },
+    { filename: 'imagen1.jpeg', name: 'Luciana Silber', text: 'Profesora, Liderazgo, Energia' }
 ];
 
 const professors = [
@@ -41,7 +41,10 @@ const professors = [
     { filename: 'professor7.jpeg', name: 'Lucia Bassi', subject: 'Historia' },
     { filename: 'professor8.jpeg', name: 'Hector Garcia', subject: 'Programacion' },
     { filename: 'professor9.jpeg', name: 'Florencia Aizemberg', subject: 'Lengua' },
-    { filename: 'professor10.jpeg', name: 'Gerardo Cordero', subject: 'Teatro' }
+    { filename: 'professor10.jpeg', name: 'Gerardo Cordero', subject: 'Teatro' },
+    { filename: 'professor11.jpeg', name: 'Patricia Lopez Rivilli', subject: 'Quimica' },
+    { filename: 'professor12.jpeg', name: 'Martin Sosa', subject: 'FVT' },
+    { filename: 'professor13.jpeg', name: 'Verónica Sargiotti', subject: 'Psicologia' }
 ];
 
 // Función para formatear texto con URLs
